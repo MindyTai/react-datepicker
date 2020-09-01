@@ -7,6 +7,7 @@
             - @babel/preset-react
             - @babel/preset-env
         - [file loader](https://webpack.js.org/loaders/file-loader/#filename-templates)
+        - [postcss loader](https://webpack.js.org/loaders/postcss-loader/)
     - plugin
         - [HtmlWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/https://webpack.js.org/plugins/html-webpack-plugin/) 
         - [CleanWebpackPlugin](https://webpack.js.org/guides/output-management/#cleaning-up-the-dist-folder)
