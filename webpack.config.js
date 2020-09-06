@@ -80,6 +80,7 @@ module.exports = {
   resolve: {
     extensions: ['.jsx', '.js'],
   },
+  devtool: 'source-map',
   devServer: {
     port: 8000,
     writeToDisk: true,
