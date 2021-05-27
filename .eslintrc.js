@@ -13,11 +13,10 @@ module.exports = {
   },
   extends: [
     'airbnb-base',
-    'plugin:prettier/recommended',
     'plugin:react/recommended',
     'eslint:recommended'
   ],
-  plugins: ['react', 'import', 'prettier'],
+  plugins: ['react', 'import'],
   rules: {
     'import/prefer-default-export': 'off',
     'class-methods-use-this': 'warn',
@@ -36,7 +35,13 @@ module.exports = {
     ],
     "no-use-before-define": "off",
     "import/no-unresolved": "off",
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "react/jsx-curly-spacing": ["warn", {
+      "when": "always",
+      "children": {
+        "when": "always"
+      }
+    }],
   },
   settings: {
     "react": {

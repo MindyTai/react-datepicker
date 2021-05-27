@@ -9,8 +9,7 @@
         "build": "webpack --config webpack.config.js",
         "serve": "http-server dist",
         "watch": "webpack --watch",
-        "lint": "eslint '*/**/*.{js,jsx,tsx}' --fix",
-        "format": "prettier --write ."
+        "lint": "eslint '*/**/*.{js,jsx,tsx}' --fix"
     },
     "keywords": [],
     "author": "",
@@ -39,10 +38,8 @@
         "eslint": "^7.27.0",
         "eslint-config-airbnb": "^18.2.0",
         "eslint-config-airbnb-base": "^14.2.1",
-        "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-import": "^2.23.3",
         "eslint-plugin-jsx-a11y": "^6.3.0",
-        "eslint-plugin-prettier": "^3.4.0",
         "eslint-plugin-react": "^7.20.6",
         "eslint-plugin-react-hooks": "^4.1.0",
         "eslint-webpack-plugin": "^2.5.4",
@@ -53,7 +50,6 @@
         "install": "^0.13.0",
         "mini-css-extract-plugin": "^0.11.0",
         "postcss-loader": "^3.0.0",
-        "prettier": "^2.3.0",
         "sass": "^1.26.10",
         "sass-loader": "^10.0.1",
         "style-loader": "^2.0.0",
