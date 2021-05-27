@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
@@ -38,14 +37,10 @@ module.exports = {
         ],
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.css$/i,
+        include: path.resolve(__dirname, 'src'),
         use: [
-          {
-            loader:  MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: '../',
-            }
-          },
+          'style-loader',
           'css-loader',
           'postcss-loader',
           'sass-loader',
@@ -54,9 +49,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].css'
-    }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
