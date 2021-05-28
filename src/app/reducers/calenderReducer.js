@@ -11,7 +11,9 @@ export const calenderReducer = (state, action) => {
     case 'GET_PREV_MONTH':
       return { ...state, date: new Date(state.year, state.month - 1, state.day) };
     case 'GET_START_DAY':
-      return { ...state, startDay: new Date(state.year, state.month, 1).getDay()}
+      return { ...state, startDay: new Date(state.year, state.month, 1).getDay()};
+    case 'SET_SELECTED_DATE':
+      return {...state, date: new Date(state.year, state.month, action.payload)}
     default:
       return state;
   }
