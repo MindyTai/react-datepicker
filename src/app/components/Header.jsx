@@ -10,7 +10,7 @@ export const Header = () => {
   } = useContext(CalenderContext);
 
   return (
-    <div className="flex justify-evenly">
+    <div className="flex justify-evenly items-center h-12">
       <Button type={ '<' } handleClick={ () => dispatch({ type: 'GET_PREV_MONTH' }) } />
       <Title year={ year } month={ month } />
       <Button type={ '>' } handleClick={ () => dispatch({ type: 'GET_NEXT_MONTH' }) } />
