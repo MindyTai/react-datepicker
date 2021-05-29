@@ -29,12 +29,16 @@ export const Calender = () => {
   return (
       <div className="border w-96 h-100">
           <Header months = { MONTHS }/>
-          { isHeaderClick ? <Months months={ MONTHS }/>
-            : <>
-                <DaysOfTheWeek days={ DAYS_OF_THE_WEEK } />
-                <Days days={ days }/>
-              </>
-          }
+            { isHeaderClick ? <Months months={ MONTHS }
+                onSelectMonth={ (selectedMonth) => {
+                  dispatch({ type: 'SET_CURRENT_MONTH', payload: selectedMonth });
+                } }
+                />
+              : (<>
+                  <DaysOfTheWeek days={ DAYS_OF_THE_WEEK } />
+                  <Days days={ days }/>
+                 </>)
+             }
       </div>
   );
 };

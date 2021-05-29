@@ -6,9 +6,7 @@ import { Button } from './Button';
 import { Title } from './Title';
 
 export const Header = ({ months }) => {
-  const {
-    year, month, dispatch,
-  } = useContext(CalenderContext);
+  const { month, dispatch } = useContext(CalenderContext);
 
   return (
     <div className="flex justify-evenly items-center h-12">
