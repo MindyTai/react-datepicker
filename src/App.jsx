@@ -9,6 +9,7 @@ const initCalendarState = {
   day: currentDate.getDate(),
   month: currentDate.getMonth(),
   year: currentDate.getFullYear(),
+  isHeaderClick: false,
   startDay: null,
 };
 
@@ -28,6 +29,7 @@ const App = () => {
                   month: state.month,
                   year: state.year,
                   startDay: state.startDay,
+                  isHeaderClick: state.isHeaderClick,
                   dispatch,
                 } }
             >

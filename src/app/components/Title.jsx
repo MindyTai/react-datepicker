@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+import { CalenderContext } from '../../App';
 
-export const Title = ({ year, month }) => (
-    <span className="w-full text-lg word-spacing-wide">
-      { `${MONTHS[month]} ${year}` }
-    </span>
-);
+export const Title = ({
+  month, handleClick,
+}) => {
+  const {
+    year, isHeaderClick,
+  } = useContext(CalenderContext);
+
+  return (
+      <button
+        className="h-full w-full text-lg word-spacing-wide bg-gray-100 active:bg-green-200 focus:outline-none"
+        onClick={ handleClick }
+      >
+        { isHeaderClick ? year : `${month} ${year}` }
+      </button>
+  );
+};
 
 Title.propTypes = {
-  year: PropTypes.number,
   month: PropTypes.number,
+  handleClick: PropTypes.func,
 };

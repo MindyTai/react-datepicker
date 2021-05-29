@@ -18,7 +18,7 @@ export const Days = ({ days }) => {
   const daysOfTheMonth = [...lastMonthDays, ...currentMonthDays, ...nextMonthDays];
   console.log(date.getMonth(), month);
   return (
-    <div className="border flex flex-wrap text-center">
+    <div className="flex flex-wrap text-center">
       { daysOfTheMonth.map((day, idx) => (
          <Day key={ idx }
               day={ day }
