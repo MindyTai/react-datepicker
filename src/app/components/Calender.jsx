@@ -5,6 +5,7 @@ import { Header } from './Header';
 import { DaysOfTheWeek } from './DaysOfTheWeek';
 import { Days } from './Days';
 import { Months } from './Months';
+import { Years } from './Years';
 
 const DAYS_OF_THE_WEEK = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 const DAYS_OF_THE_YEAR = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -13,7 +14,7 @@ const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', '
 
 export const Calender = () => {
   const {
-    year, date, dispatch, isHeaderClick,
+    year, date, dispatch, isYearMonthHeaderClick, isMonthClick,
   } = useContext(CalenderContext);
 
   const isLeapYear = (year % 4 === 0 && year % 100 === 0) || year % 400 === 0;
@@ -26,19 +27,32 @@ export const Calender = () => {
     dispatch({ type: 'GET_START_DAY' });
   }, [date]);
 
+  const renderContent = () => {
+    if (!isYearMonthHeaderClick && !isMonthClick) {
+      return (
+        <>
+          <DaysOfTheWeek days={ DAYS_OF_THE_WEEK } />
+          <Days days={ days }/>
+        </>
+      );
+    } if (isYearMonthHeaderClick) {
+      return (
+        <Months months={ MONTHS }
+          onSelectMonth={ (selectedMonth) => {
+            dispatch({ type: 'SET_CURRENT_MONTH', payload: selectedMonth });
+          } }
+      />
+      );
+    }
+    return (
+      <Years/>
+    );
+  };
+
   return (
       <div className="border w-96 h-100">
           <Header months = { MONTHS }/>
-            { isHeaderClick ? <Months months={ MONTHS }
-                onSelectMonth={ (selectedMonth) => {
-                  dispatch({ type: 'SET_CURRENT_MONTH', payload: selectedMonth });
-                } }
-                />
-              : (<>
-                  <DaysOfTheWeek days={ DAYS_OF_THE_WEEK } />
-                  <Days days={ days }/>
-                 </>)
-             }
+          { renderContent() }
       </div>
   );
 };

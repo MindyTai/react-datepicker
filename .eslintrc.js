@@ -42,6 +42,7 @@ module.exports = {
         "when": "always"
       }
     }],
+    "no-nested-ternary": "off"
   },
   settings: {
     "react": {

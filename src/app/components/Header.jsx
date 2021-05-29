@@ -6,13 +6,45 @@ import { Button } from './Button';
 import { Title } from './Title';
 
 export const Header = ({ months }) => {
-  const { month, dispatch } = useContext(CalenderContext);
+  const {
+    month, dispatch, isMonthClick, isYearMonthHeaderClick,
+  } = useContext(CalenderContext);
+
+  const handleTitleClick = () => {
+    if (!isYearMonthHeaderClick && !isMonthClick) {
+      dispatch({ type: 'SET_YEAR_MONTH_HEADER_ClICK' });
+    } else if (isYearMonthHeaderClick) {
+      dispatch({ type: 'SET_MONTH_CLICK' });
+    } else {
+      dispatch({ type: 'SET_YEAR_CLICK' });
+    }
+  };
+
+  const handlePrevClick = () => {
+    if (!isYearMonthHeaderClick && !isMonthClick) {
+      dispatch({ type: 'SET_PREV_DAY' }); // TODO!!!!!!!!!!!!!!!!
+    } else if (isYearMonthHeaderClick) {
+      dispatch({ type: 'GET_PREV_MONTH' });
+    } else {
+      dispatch({ type: 'SET_PREV_YEAR' });
+    }
+  };
+
+  const handleNextClick = () => {
+    if (!isYearMonthHeaderClick && !isMonthClick) {
+      dispatch({ type: 'SET_NEXT_DAY' }); // TODO!!!!!!!!!!!!!!!!
+    } else if (isYearMonthHeaderClick) {
+      dispatch({ type: 'GET_NEXT_MONTH' });
+    } else {
+      dispatch({ type: 'SET_NEXT_YEAR' });
+    }
+  };
 
   return (
     <div className="flex justify-evenly items-center h-12">
-      <Button type={ '<' } handleClick={ () => dispatch({ type: 'GET_PREV_MONTH' }) } />
-      <Title month={ months[month] } handleClick={ () => dispatch({ type: 'SET_HEADER_ClICK' }) }/>
-      <Button type={ '>' } handleClick={ () => dispatch({ type: 'GET_NEXT_MONTH' }) } />
+      <Button type={ '<' } handleClick={ handlePrevClick } />
+      <Title month={ months[month] } handleClick={ handleTitleClick }/>
+      <Button type={ '>' } handleClick={ handleNextClick } />
     </div>
   );
 };

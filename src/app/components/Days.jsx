@@ -7,7 +7,7 @@ import { CalenderContext } from '../../App';
 
 export const Days = ({ days }) => {
   const {
-    month, startDay, day: currentDay, date, dispatch,
+    month, startDay, day: currentDay, dispatch,
   } = useContext(CalenderContext);
   const lastMonthDays = _.rangeRight(days[month - 1], days[month - 1] - startDay);
   const currentMonthDays = _.range(1, days[month] + 1, 1);
@@ -16,7 +16,7 @@ export const Days = ({ days }) => {
   const currentMonthIndexs = _.range(startDay, days[month] + startDay, 1);
 
   const daysOfTheMonth = [...lastMonthDays, ...currentMonthDays, ...nextMonthDays];
-  console.log(date.getMonth(), month);
+
   return (
     <div className="flex flex-wrap text-center">
       { daysOfTheMonth.map((day, idx) => (

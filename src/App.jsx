@@ -9,8 +9,10 @@ const initCalendarState = {
   day: currentDate.getDate(),
   month: currentDate.getMonth(),
   year: currentDate.getFullYear(),
-  isHeaderClick: false,
+  isYearMonthHeaderClick: false,
+  isMonthClick: false,
   startDay: null,
+  yearCount: 1,
 };
 
 export const CalenderContext = React.createContext({});
@@ -29,7 +31,9 @@ const App = () => {
                   month: state.month,
                   year: state.year,
                   startDay: state.startDay,
-                  isHeaderClick: state.isHeaderClick,
+                  isYearMonthHeaderClick: state.isYearMonthHeaderClick,
+                  isMonthClick: state.isMonthClick,
+                  yearCount: state.yearCount,
                   dispatch,
                 } }
             >

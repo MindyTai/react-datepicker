@@ -7,7 +7,7 @@ export const Title = ({
   month, handleClick,
 }) => {
   const {
-    year, isHeaderClick,
+    year, isYearMonthHeaderClick, isMonthClick, yearCount,
   } = useContext(CalenderContext);
 
   return (
@@ -15,7 +15,7 @@ export const Title = ({
         className="h-full w-full text-lg word-spacing-wide bg-gray-100 active:bg-green-200 focus:outline-none"
         onClick={ handleClick }
       >
-        { isHeaderClick ? year : `${month} ${year}` }
+        { isYearMonthHeaderClick ? year : (isMonthClick ? `${year - 12 * yearCount + 1}-${year - 12 * (yearCount - 1)}` : `${month} ${year}`) }
       </button>
   );
 };

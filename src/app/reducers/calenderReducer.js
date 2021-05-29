@@ -14,10 +14,18 @@ export const calenderReducer = (state, action) => {
       return { ...state, startDay: new Date(state.year, state.month, 1).getDay()};
     case 'SET_SELECTED_DATE':
       return {...state, date: new Date(state.year, state.month, action.payload)};
-    case 'SET_HEADER_ClICK':
-      return {...state, isHeaderClick: !state.isHeaderClick};
+    case 'SET_YEAR_MONTH_HEADER_ClICK':
+      return {...state, isYearMonthHeaderClick: true};
     case 'SET_CURRENT_MONTH':
       return {...state, date: new Date(state.year, action.payload, state.day)}
+    case 'SET_MONTH_CLICK':
+      return {...state, isMonthClick: true, isYearMonthHeaderClick: false}
+    case 'SET_YEAR_CLICK':
+      return {...state, isYearMonthHeaderClick: false, isMonthClick: false}
+    case 'SET_NEXT_YEAR':
+      return {...state, yearCount: state.yearCount - 1}
+    case 'SET_PREV_YEAR':
+      return {...state, yearCount: state.yearCount + 1}
     default:
       return state;
   }
