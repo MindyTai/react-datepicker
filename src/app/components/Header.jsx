@@ -22,7 +22,7 @@ export const Header = ({ months }) => {
 
   const handlePrevClick = () => {
     if (!isYearMonthHeaderClick && !isMonthClick) {
-      dispatch({ type: 'SET_PREV_DAY' }); // TODO!!!!!!!!!!!!!!!!
+      dispatch({ type: 'SET_PREV_DAY' });
     } else if (isYearMonthHeaderClick) {
       dispatch({ type: 'GET_PREV_MONTH' });
     } else {
@@ -32,7 +32,7 @@ export const Header = ({ months }) => {
 
   const handleNextClick = () => {
     if (!isYearMonthHeaderClick && !isMonthClick) {
-      dispatch({ type: 'SET_NEXT_DAY' }); // TODO!!!!!!!!!!!!!!!!
+      dispatch({ type: 'SET_NEXT_DAY' });
     } else if (isYearMonthHeaderClick) {
       dispatch({ type: 'GET_NEXT_MONTH' });
     } else {

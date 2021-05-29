@@ -26,6 +26,10 @@ export const calenderReducer = (state, action) => {
       return {...state, yearCount: state.yearCount - 1}
     case 'SET_PREV_YEAR':
       return {...state, yearCount: state.yearCount + 1}
+    case 'SET_PREV_DAY':
+      return { ...state, date: new Date(state.year, state.month, state.day - 1) };
+    case 'SET_NEXT_DAY':
+      return { ...state, date: new Date(state.year, state.month, state.day + 1) };
     default:
       return state;
   }
