@@ -15,21 +15,28 @@ export const calenderReducer = (state, action) => {
     case 'SET_SELECTED_DATE':
       return {...state, date: new Date(state.year, state.month, action.payload)};
     case 'SET_YEAR_MONTH_HEADER_ClICK':
-      return {...state, isYearMonthHeaderClick: true};
+    return {...state, isYearMonthHeaderClick: true, isMonthClick: false};
     case 'SET_CURRENT_MONTH':
-      return {...state, date: new Date(state.year, action.payload, state.day)}
+      return {...state, date: new Date(state.year, action.payload, state.day), 
+              isYearMonthHeaderClick: false, isMonthClick: false}
     case 'SET_MONTH_CLICK':
-      return {...state, isMonthClick: true, isYearMonthHeaderClick: false}
+    return {...state, isYearMonthHeaderClick: false, isMonthClick: true}
     case 'SET_YEAR_CLICK':
-      return {...state, isYearMonthHeaderClick: false, isMonthClick: false}
+    return {...state, isYearMonthHeaderClick: false,  isMonthClick: false}
     case 'SET_NEXT_YEAR':
-      return {...state, yearCount: state.yearCount - 1}
+      return {...state, date: new Date(state.year + 1, state.month, state.day)}
     case 'SET_PREV_YEAR':
-      return {...state, yearCount: state.yearCount + 1}
+      return {...state, date: new Date(state.year - 1, state.month, state.day)}
     case 'SET_PREV_DAY':
       return { ...state, date: new Date(state.year, state.month, state.day - 1) };
     case 'SET_NEXT_DAY':
       return { ...state, date: new Date(state.year, state.month, state.day + 1) };
+    case 'SET_SELECTED_YEAR':
+      return {...state, date: new Date(action.payload, state.month, state.day), isYearMonthHeaderClick: true, isMonthClick: false }
+    case 'DECRESE_YEAR_COUNT':
+    return {...state, yearCount: state.yearCount - 1}
+    case 'INCREASE_YEAR_COUNT':
+      return {...state, yearCount: state.yearCount + 1  }
     default:
       return state;
   }
