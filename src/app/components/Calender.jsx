@@ -52,10 +52,11 @@ export const Calender = () => {
         <Years years={ currentYears } onSelectYear= { (selectedYear) => dispatch({ type: 'SET_SELECTED_YEAR', payload: selectedYear }) }/>
       );
     }
+    return <></>;
   };
 
   return (
-      <div className="border w-96 h-100">
+    <div className="border w-96 h-100 shadow bg-white">
           <Header months = { MONTHS }/>
           { renderContent() }
       </div>

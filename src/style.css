@@ -7,3 +7,7 @@
     word-spacing: 2rem;
   }
 }
+
+html, body {
+  @apply m-0 h-full bg-indigo-100;
+}

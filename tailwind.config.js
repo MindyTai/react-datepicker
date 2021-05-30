@@ -11,6 +11,14 @@
         height: {
           '100': '25rem',
          },
+         colors: {
+           gray: {
+             0: '#eee'
+            },
+           red: {
+             0: '#db3d44'
+           }
+         }
        },
      },
      variants: {

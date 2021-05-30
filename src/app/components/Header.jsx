@@ -7,7 +7,7 @@ import { Title } from './Title';
 
 export const Header = ({ months }) => {
   const {
-    month, dispatch, isMonthClick, isYearMonthHeaderClick,
+    month, dispatch, isMonthClick, isYearMonthHeaderClick, yearCount,
   } = useContext(CalenderContext);
 
   const handleTitleClick = () => {
@@ -43,8 +43,8 @@ export const Header = ({ months }) => {
   return (
     <div className="flex justify-evenly items-center h-12">
       <Button type={ '<' } handleClick={ handlePrevClick } />
-      <Title month={ months[month] } handleClick={ handleTitleClick }/>
-      <Button type={ '>' } handleClick={ handleNextClick } />
+      <Title month={ months[month] } handleClick={ handleTitleClick } />
+      <Button type={ '>' } handleClick={ handleNextClick } disabled={ yearCount === 1 && !isYearMonthHeaderClick && isMonthClick } />
     </div>
   );
 };

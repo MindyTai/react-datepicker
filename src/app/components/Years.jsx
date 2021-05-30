@@ -15,7 +15,7 @@ export const Years = ({ years, onSelectYear }) => {
       <div className="flex flex-wrap text-center h-full justify-center">
       { years.map((y) => <button key={ y }
           className={ classNames('mx-1 w-1/5 h-1/5 flex items-center justify-center text-xl rounded-full focus:outline-none',
-            { 'bg-red-400 text-white': year === y }) }
+            { 'bg-red-0 text-white': year === y }) }
           onClick ={ () => onSelectYear(y) }
           >
               { y }
