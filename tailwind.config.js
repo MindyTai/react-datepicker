@@ -13,6 +13,10 @@
          },
        },
      },
-     variants: {},
+     variants: {
+       extend: {
+        backgroundColor: ['active'],
+      }
+     },
      plugins: [],
    }

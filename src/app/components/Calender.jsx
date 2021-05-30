@@ -15,12 +15,12 @@ const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', '
 
 export const Calender = () => {
   const {
-    year, date, dispatch, isYearMonthHeaderClick, isMonthClick, yearCount,
+    today, year, date, dispatch, isYearMonthHeaderClick, isMonthClick, yearCount,
   } = useContext(CalenderContext);
 
   const isLeapYear = (year % 4 === 0 && year % 100 === 0) || year % 400 === 0;
   const days = isLeapYear ? DAYS_OF_THE_LEAP_YEAR : DAYS_OF_THE_YEAR;
-  const currentYear = new Date().getFullYear();
+  const currentYear = today.getFullYear();
   const currentYears = _.range(currentYear - 12 * yearCount + 1,
     currentYear - 12 * (yearCount - 1) + 1, 1);
 

@@ -7,10 +7,10 @@ export const Title = ({
   month, handleClick,
 }) => {
   const {
-    year, isYearMonthHeaderClick, isMonthClick, yearCount, dispatch,
+    today, year, isYearMonthHeaderClick, isMonthClick, yearCount, dispatch,
   } = useContext(CalenderContext);
 
-  const currentYear = new Date().getFullYear();
+  const currentYear = today.getFullYear();
 
   useEffect(() => {
     if (year < currentYear - 12 * yearCount + 1) {
@@ -22,7 +22,7 @@ export const Title = ({
 
   return (
       <button
-        className="h-full w-full text-lg word-spacing-wide bg-gray-100 active:bg-green-200 focus:outline-none"
+        className="h-full w-full text-lg word-spacing-wide active:bg-gray-100 focus:outline-none"
         onClick={ handleClick }
       >
       { isYearMonthHeaderClick ? year : (isMonthClick ? `${currentYear - 12 * yearCount + 1}-${currentYear - 12 * (yearCount - 1)}` : `${month} ${year}`) }

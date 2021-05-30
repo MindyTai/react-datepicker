@@ -5,6 +5,7 @@ import { calenderReducer } from './app/reducers/CalenderReducer';
 const currentDate = new Date();
 
 const initCalendarState = {
+  today: new Date(),
   date: currentDate,
   day: currentDate.getDate(),
   month: currentDate.getMonth(),
@@ -26,6 +27,7 @@ const App = () => {
             </h2>
             <CalenderContext.Provider
                 value={ {
+                  today: state.today,
                   date: state.date,
                   day: state.day,
                   month: state.month,
