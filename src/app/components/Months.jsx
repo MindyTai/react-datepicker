@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { CalenderContext } from '../../App';
+import { DatePickerContext } from '../../App';
 
 export const Months = ({ months, onSelectMonth }) => {
   const {
     month: currentMonth,
-  } = useContext(CalenderContext);
+  } = useContext(DatePickerContext);
 
   return (
     <div className="flex items-center h-full p-2">

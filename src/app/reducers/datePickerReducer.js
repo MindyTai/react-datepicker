@@ -1,4 +1,4 @@
-export const calenderReducer = (state, action) => {
+export const datePickerReducer = (state, action) => {
   switch (action.type) {
     case 'GET_MONTH':
       return { ...state, month: state.date.getMonth() };
@@ -37,6 +37,16 @@ export const calenderReducer = (state, action) => {
     return {...state, yearCount: state.yearCount - 1}
     case 'INCREASE_YEAR_COUNT':
       return {...state, yearCount: state.yearCount + 1  }
+    case 'OPEN_CALENDER':
+      return {...state, isCalenderOpen: true}
+    case 'CLOSE_CALENDER':
+      return {...state, isCalenderOpen: false,isInputYearClick: false, isInputMonthClick: false, isInputDateClick: false}
+    case 'SET_INPUT_YEAR_CLICK':
+      return {...state, isInputYearClick: true, isInputMonthClick: false, isInputDateClick: false}
+    case 'SET_INPUT_MONTH_CLICK':
+      return {...state, isInputMonthClick: true, isInputYearClick: false, isInputDateClick: false}
+    case 'SET_INPUT_DATE_CLICK':
+    return {...state, isInputDateClick: true, isInputYearClick: false, isInputMonthClick: false}
     default:
       return state;
   }

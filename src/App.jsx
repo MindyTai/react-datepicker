@@ -1,10 +1,12 @@
 import React, { useReducer } from 'react';
+import { fromPairs } from 'lodash';
 import { Calender } from './app/components/Calender';
-import { calenderReducer } from './app/reducers/CalenderReducer';
+import { Input } from './app/components/Input';
+import { datePickerReducer } from './app/reducers/datePickerReducer';
 
 const currentDate = new Date();
 
-const initCalendarState = {
+const initDatePickerState = {
   today: new Date(),
   date: currentDate,
   day: currentDate.getDate(),
@@ -14,18 +16,22 @@ const initCalendarState = {
   isMonthClick: false,
   startDay: null,
   yearCount: 1,
+  isCalenderOpen: false,
+  isInputYearClick: false,
+  isInputMonthClick: false,
+  isInputDateClick: false,
 };
 
-export const CalenderContext = React.createContext({});
+export const DatePickerContext = React.createContext({});
 
 const App = () => {
-  const [state, dispatch] = useReducer(calenderReducer, initCalendarState);
+  const [state, dispatch] = useReducer(datePickerReducer, initDatePickerState);
   return (
         <div className="container mx-auto w-full pt-20 flex flex-col items-center">
             <h2 className="text-primary text-2xl font-bold mb-12">
               Welcome to the calender app!
             </h2>
-            <CalenderContext.Provider
+            <DatePickerContext.Provider
                 value={ {
                   today: state.today,
                   date: state.date,
@@ -36,11 +42,16 @@ const App = () => {
                   isYearMonthHeaderClick: state.isYearMonthHeaderClick,
                   isMonthClick: state.isMonthClick,
                   yearCount: state.yearCount,
+                  isCalenderOpen: state.isCalenderOpen,
+                  isInputYearClick: state.isInputYearClick,
+                  isInputMonthClick: state.isInputMonthClick,
+                  isInputDateClick: state.isInputDateClick,
                   dispatch,
                 } }
             >
-                <Calender />
-            </CalenderContext.Provider>
+              <Input />
+              <Calender />
+            </DatePickerContext.Provider>
         </div>
   );
 };

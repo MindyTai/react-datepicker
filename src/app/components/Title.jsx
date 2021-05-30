@@ -1,14 +1,14 @@
 import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { CalenderContext } from '../../App';
+import { DatePickerContext } from '../../App';
 
 export const Title = ({
   month, handleClick,
 }) => {
   const {
     today, year, isYearMonthHeaderClick, isMonthClick, yearCount, dispatch,
-  } = useContext(CalenderContext);
+  } = useContext(DatePickerContext);
 
   const currentYear = today.getFullYear();
 

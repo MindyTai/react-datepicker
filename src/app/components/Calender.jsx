@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import _ from 'lodash';
 
-import { CalenderContext } from '../../App';
+import { DatePickerContext } from '../../App';
 import { Header } from './Header';
 import { DaysOfTheWeek } from './DaysOfTheWeek';
 import { Days } from './Days';
@@ -15,8 +15,8 @@ const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', '
 
 export const Calender = () => {
   const {
-    today, year, date, dispatch, isYearMonthHeaderClick, isMonthClick, yearCount,
-  } = useContext(CalenderContext);
+    today, year, date, dispatch, isYearMonthHeaderClick, isMonthClick, yearCount, isCalenderOpen,
+  } = useContext(DatePickerContext);
 
   const isLeapYear = (year % 4 === 0 && year % 100 === 0) || year % 400 === 0;
   const days = isLeapYear ? DAYS_OF_THE_LEAP_YEAR : DAYS_OF_THE_YEAR;
@@ -56,9 +56,11 @@ export const Calender = () => {
   };
 
   return (
-    <div className="border w-96 h-100 shadow bg-white">
+    <>
+      { isCalenderOpen ? (<div className="border w-96 h-100 shadow bg-white mt-8">
           <Header months = { MONTHS }/>
           { renderContent() }
-      </div>
+      </div>) : null }
+    </>
   );
 };

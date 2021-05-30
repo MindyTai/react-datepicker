@@ -3,12 +3,12 @@ import classNames from 'classnames';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 
-import { CalenderContext } from '../../App';
+import { DatePickerContext } from '../../App';
 
 export const Years = ({ years, onSelectYear }) => {
   const {
     year,
-  } = useContext(CalenderContext);
+  } = useContext(DatePickerContext);
 
   return (
     <div className="flex items-center h-full p-2">

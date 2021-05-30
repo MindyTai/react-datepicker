@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { CalenderContext } from '../../App';
+import { DatePickerContext } from '../../App';
 import { Button } from './Button';
 import { Title } from './Title';
 
 export const Header = ({ months }) => {
   const {
     month, dispatch, isMonthClick, isYearMonthHeaderClick, yearCount,
-  } = useContext(CalenderContext);
+  } = useContext(DatePickerContext);
 
   const handleTitleClick = () => {
     if (!isYearMonthHeaderClick && !isMonthClick) {

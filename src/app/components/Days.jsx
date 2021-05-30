@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 import { Day } from './Day';
-import { CalenderContext } from '../../App';
+import { DatePickerContext } from '../../App';
 
 export const Days = ({ days }) => {
   const {
     today, year, month, startDay, day: currentDay, dispatch,
-  } = useContext(CalenderContext);
+  } = useContext(DatePickerContext);
 
   const lastMonthDays = _.rangeRight(days[month - 1], days[month - 1] - startDay);
   const currentMonthDays = _.range(1, days[month] + 1, 1);
@@ -27,9 +27,10 @@ export const Days = ({ days }) => {
               day={ day }
               isSelected={ day === currentDay }
               isCurrentMonth={ !!currentMonthIndexs.includes(idx) }
-              handleClick={ () => (
-                dispatch({ type: 'SET_SELECTED_DATE', payload: day })
-              ) }
+              handleClick={ () => {
+                dispatch({ type: 'SET_SELECTED_DATE', payload: day });
+                dispatch({ type: 'CLOSE_CALENDER' });
+              } }
               isToday={ isToday(day) }
           />)) }
     </div>
