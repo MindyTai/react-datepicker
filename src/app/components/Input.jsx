@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
 
 import { DatePickerContext } from '../../App';
 
@@ -19,6 +21,7 @@ export const Input = () => {
   return (
   <div className='flex border border-gray-400 w-40 bg-white p-2 rounded'>
       <button className={ classNames('flex-1 focus:outline-none', { 'bg-gray-100': isCalenderOpen && isInputYearClick }) }
+      <FontAwesomeIcon icon={ faCalendarAlt } className='mr-1'/>
         onClick={ () => {
           dispatch({ type: 'SET_INPUT_YEAR_CLICK' });
           dispatch({ type: 'OPEN_CALENDER' });
