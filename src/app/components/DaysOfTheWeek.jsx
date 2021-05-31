@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const DaysOfTheWeek = ({ days }) => (
-      <div className="border-t border-b w-full flex justify-evenly">
+      <div className="border-t border-b w-full flex justify-evenly text-sm sm:text-base">
             { days.map((day) => (
                 <div key={ day } className="w-13.5 text-center">{ day }</div>
             )) }

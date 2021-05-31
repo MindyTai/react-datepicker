@@ -5,7 +5,7 @@ import classNames from 'classnames';
 export const Day = ({
   day, isSelected, handleClick, isCurrentMonth, isToday,
 }) => (<button
-      className={ classNames('w-13 h-13 focus:outline-none rounded-full',
+      className={ classNames('w-7 sm:w-13 h-7 sm:h-13 focus:outline-none rounded-full',
         { 'bg-red-0 text-white': isSelected && isCurrentMonth },
         { 'text-gray-0 cursor-default': !isCurrentMonth },
         { 'text-red-0': isToday && isCurrentMonth && !isSelected }) }

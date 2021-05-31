@@ -28,7 +28,7 @@ const App = () => {
   const [state, dispatch] = useReducer(datePickerReducer, initDatePickerState);
   return (
         <div className="container mx-auto w-full pt-20 flex flex-col items-center">
-            <h2 className="text-primary text-2xl font-bold mb-12">
+            <h2 className="text-primary text-base sm:text-2xl font-bold mb-12">
               Welcome to the calender app!
             </h2>
             <DatePickerContext.Provider

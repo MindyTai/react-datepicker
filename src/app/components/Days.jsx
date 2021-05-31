@@ -21,7 +21,7 @@ export const Days = ({ days }) => {
     && today.getMonth() === month && today.getDate() === d;
 
   return (
-    <div className="flex flex-wrap text-center">
+    <div className="flex flex-wrap text-center justify-evenly">
       { daysOfTheMonth.map((day, idx) => (
          <Day key={ idx }
               day={ day }

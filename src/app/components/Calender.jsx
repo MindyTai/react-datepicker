@@ -57,7 +57,7 @@ export const Calender = () => {
 
   return (
     <>
-      { isCalenderOpen ? (<div className="border w-96 h-100 shadow bg-white mt-8">
+      { isCalenderOpen ? (<div className="border w-56 sm:w-96 h-64 sm:h-100 shadow bg-white mt-8">
           <Header months = { MONTHS }/>
           { renderContent() }
       </div>) : null }
