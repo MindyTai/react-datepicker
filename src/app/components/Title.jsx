@@ -22,7 +22,7 @@ export const Title = ({
 
   return (
       <button
-        className="h-full w-full word-spacing-wide active:bg-gray-100 focus:outline-none text-sm md:text-lg"
+        className="h-full w-full word-spacing-wide active:bg-gray-100 focus:outline-none text-sm md:text-lg font-bold"
         onClick={ handleClick }
       >
       { isYearMonthHeaderClick ? year : (isMonthClick ? `${currentYear - 12 * yearCount + 1}-${currentYear - 12 * (yearCount - 1)}` : `${month} ${year}`) }
