@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import classNames from 'classnames';
-import _ from 'lodash';
 import PropTypes from 'prop-types';
 
 import { DatePickerContext } from '../../App';

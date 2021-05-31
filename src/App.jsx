@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { fromPairs } from 'lodash';
+
 import { Calender } from './app/components/Calender';
 import { Input } from './app/components/Input';
 import { datePickerReducer } from './app/reducers/datePickerReducer';
