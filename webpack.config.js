@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WorkboxPlugin = require('workbox-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
@@ -53,21 +52,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       favicon: './public/favicon.png',
-    }),
-    new WorkboxPlugin.GenerateSW({
-      clientsClaim: true,
-      skipWaiting: true,
-      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
-      runtimeCaching: [{
-        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-        handler: 'CacheFirst',
-        options: {
-          cacheName: 'images',
-          expiration: {
-            maxEntries: 10,
-          },
-        },
-      }],
     }),
     new ESLintPlugin({
        extensions: ['.js', 'jsx', '.ts', '.tsx']
